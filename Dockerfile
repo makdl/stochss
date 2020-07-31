@@ -7,7 +7,7 @@ USER root
 
 WORKDIR /stochss
 
-RUN apt-get update && apt-get install -y zip julia julia-common
+RUN apt-get update && apt-get install -y zip julia julia-common julia-doc
 
 RUN chown jovyan:users /stochss
 
