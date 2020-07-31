@@ -7,7 +7,7 @@ USER root
 
 WORKDIR /stochss
 
-RUN apt-get update && apt-get install -y zip
+RUN apt-get update && apt-get install -y zip julia julia-common
 
 RUN chown jovyan:users /stochss
 
@@ -28,11 +28,6 @@ COPY --chown=jovyan:users custom.css $JUPYTER_CONFIG_DIR/custom/custom.css
 COPY --chown=jovyan:users jupyter_notebook_config.py $JUPYTER_CONFIG_DIR/jupyter_notebook_config.py
 
 USER root
-
-RUN wget -q https://julialang-s3.julialang.org/bin/linux/x64/1.4/julia-1.4.2-linux-x86_64.tar.gz \
-    && tar -xvzf julia-1.4.2-linux-x86_64.tar.gz \
-    && mv julia-1.4.2 /usr/local/ \
-    && chown -R jovyan:users /usr/local/julia-1.4.2/
 
 USER jovyan
 
