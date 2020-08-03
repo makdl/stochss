@@ -7,7 +7,7 @@ USER root
 
 WORKDIR /stochss
 
-RUN apt-get update && apt-get install -y zip julia julia-common
+RUN apt-get update && apt-get install -y zip
 
 RUN chown jovyan:users /stochss
 
@@ -30,8 +30,6 @@ COPY --chown=jovyan:users jupyter_notebook_config.py $JUPYTER_CONFIG_DIR/jupyter
 USER root
 
 USER jovyan
-
-ENV PATH="/usr/local/julia-1.4.2/bin:${PATH}"
 
 RUN pip install --no-cache-dir -e .
 
