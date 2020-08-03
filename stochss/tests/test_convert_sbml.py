@@ -185,8 +185,11 @@ class TestConvertSBMLToModel(unittest.TestCase):
             model_keys = sorted(list(map(lambda item: item.strip().split(':')[0], props)))
             
         species = get_species(gillespy2_model.listOfSpecies, 1)[0]
+        print(species)
         parameters = get_parameters(gillespy2_model.listOfParameters, 1)[0]
+        print(parameters)
         assignment_rule_keys = sorted(list(get_assignment_rules(gillespy2_model.listOfAssignmentRules, species, parameters, 1)[0][0].keys()))
+        print(assignment_rule_keys)
         self.assertEqual(assignment_rule_keys, model_keys)
 
 
