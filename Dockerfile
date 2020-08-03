@@ -7,7 +7,7 @@ USER root
 
 WORKDIR /stochss
 
-RUN apt-get update && apt-get install -y zip julia julia-common julia-doc
+RUN apt-get update && apt-get install -y zip julia julia-common
 
 RUN chown jovyan:users /stochss
 
@@ -32,9 +32,6 @@ USER root
 USER jovyan
 
 ENV PATH="/usr/local/julia-1.4.2/bin:${PATH}"
-
-RUN julia -e 'using Pkg; Pkg.add("IJulia")'
-RUN julia -e 'using Pkg; Pkg.add(PackageSpec(url="https://github.com/stochss/gillespy2lia", rev="main"))'
 
 RUN pip install --no-cache-dir -e .
 
